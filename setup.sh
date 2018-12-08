@@ -25,6 +25,8 @@ ProtectSystem=full
 [Install]
 WantedBy=multi-user.target' >> /lib/systemd/system/snowgem.service"
 
+#remove old params files
+rm ~/.snowgem-params -r
 
 chmod +x ~/masternode-upgrade/fetch-params.sh
 

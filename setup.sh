@@ -28,7 +28,7 @@ WantedBy=multi-user.target' >> /lib/systemd/system/snowgem.service"
 
 chmod +x ~/masternode-upgrade/fetch-params.sh
 
-wget -N https://github.com/Snowgem/Snowgem/releases/download/200458-20181006/snowgem-linux-2000458-20181006.zip -O ~/binary.zip
+wget -N https://github.com/Snowgem/Snowgem/releases/download/3000450-20181208/snowgem-linux-3000450-20181208.zip -O ~/binary.zip
 unzip -o ~/binary.zip -d ~
 
 wget -N https://cdn1.snowgem.org/blockchain_index.zip -O ~/blockchain.zip

@@ -1,0 +1,4 @@
+cd ~
+
+./snowgem-cli stop
+

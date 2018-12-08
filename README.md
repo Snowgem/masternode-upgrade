@@ -15,7 +15,7 @@ sudo apt-get install \
 ```
 git clone https://github.com/Snowgem/masternode-upgrade
 cd masternode-upgrade
-chmod +x setup.sh fetch-params.sh
+chmod +x setup.sh setup_part2.sh fetch-params.sh
 ```
 
 ### Upgrade masternode
@@ -59,4 +59,18 @@ To check current syncing process, run following command
 ./snowgem-cli getinfo
 ```
 
-If your current block is latest block, go to the next step in the guide.
+Once it's synced, go to local pc, select the corresponding masternode and start it.
+
+
+Go to VPS, run
+```
+./masternode-upgrade/setup_part2.sh
+```
+
+Then run 
+```
+./snowgem-cli masternodedebug
+```
+
+to check current masternode status.
+If it says: ``Masternode successfully started``, your upgrading process is finished.

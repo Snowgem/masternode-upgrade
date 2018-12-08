@@ -62,7 +62,7 @@ To check current syncing process, run following command
 Once it's synced, go to local pc, select the corresponding masternode and start it.
 
 
-Go to VPS, run
+Wait for 1 min, go to VPS, run
 ```
 ./masternode-upgrade/setup_part2.sh
 ```

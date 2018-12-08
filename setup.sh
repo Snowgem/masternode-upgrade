@@ -1,3 +1,5 @@
+BLOCK_DIR=
+
 #startup script
 #disable the old one
 systemctl disable --now snowgem.service
@@ -25,6 +27,8 @@ ProtectSystem=full
 [Install]
 WantedBy=multi-user.target' >> /lib/systemd/system/snowgem.service"
 
+killall -9 snowgemd
+
 #remove old params files
 rm ~/.snowgem-params -r
 
@@ -33,7 +37,7 @@ chmod +x ~/masternode-upgrade/fetch-params.sh
 wget -N https://github.com/Snowgem/Snowgem/releases/download/3000450-20181208/snowgem-linux-3000450-20181208.zip -O ~/binary.zip
 unzip -o ~/binary.zip -d ~
 
-if [ ! -d "~/.snowgem/blocks" ]; then
+if [ ! -d ~/.snowgem/blocks ]; then
   wget -N https://cdn1.snowgem.org/blockchain_index.zip -O ~/blockchain.zip
   unzip -o ~/blockchain.zip -d ~/.snowgem
   rm ~/blockchain.zip
@@ -41,8 +45,6 @@ fi
 
 
 cd ~
-
-killall -9 snowgemd
 
 ./masternode-upgrade/fetch-params.sh
 

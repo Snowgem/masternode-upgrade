@@ -59,7 +59,7 @@ To check current syncing process, run following command
 ./snowgem-cli getinfo
 ```
 
-Once it's synced, go to local pc, select the corresponding masternode and start it.
+Once it's synced, ``GO TO YOUR LOCAL PC``, select the corresponding masternode and start it.
 
 
 Wait for 1 min, go to VPS, run

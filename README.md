@@ -74,3 +74,13 @@ Then run
 
 to check current masternode status.
 If it says: ``Masternode successfully started``, your upgrading process is finished.
+
+If your masternode is still not activated, run the following steps until it's activated
+```
+cd ~
+./snowgem-cli stop
+```
+wait for 1-2 mins then run
+```
+./snowgem-cli masternodedebug
+```

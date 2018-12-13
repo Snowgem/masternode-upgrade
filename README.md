@@ -15,14 +15,14 @@ sudo apt-get install \
 ```
 git clone https://github.com/Snowgem/masternode-upgrade
 cd masternode-upgrade
-chmod +x setup.sh setup_part2.sh fetch-params.sh
+chmod +x masternode-upgrade/setup.sh masternode-upgrade/setup_part2.sh masternode-upgrade/fetch-params.sh
 ```
 
 ### Upgrade masternode
 
 You need to run this command:
 ```
-./setup.sh
+./masternode-upgrade/setup.sh
 ```
 
 After it's finished, you'll receive this data:

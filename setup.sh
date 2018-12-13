@@ -1,11 +1,15 @@
 BLOCK_DIR=
 
-#startup script
-#disable the old one
-systemctl disable --now snowgem.service
+cd masternode-upgrade
 
+#setup auto starting
 #remove old one
-sudo rm /lib/systemd/system/snowgem.service
+if [ -f /lib/systemd/system/snowgem.service ]; then
+	systemctl disable --now snowgem.service
+	sudo rm /lib/systemd/system/snowgem.service
+else
+	echo "File not existed, OK"
+fi
 
 #create new one
 sh -c "echo '[Unit]
@@ -31,6 +35,7 @@ killall -9 snowgemd
 
 #remove old params files
 rm ~/.snowgem-params -r
+rm ~/snowgem-wallet -r
 
 chmod +x ~/masternode-upgrade/fetch-params.sh
 

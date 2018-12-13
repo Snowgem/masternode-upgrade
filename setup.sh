@@ -34,8 +34,13 @@ WantedBy=multi-user.target' >> /lib/systemd/system/snowgem.service"
 killall -9 snowgemd
 
 #remove old params files
-rm ~/.snowgem-params -r
-rm ~/snowgem-wallet -r
+if [ -d ~/.snowgem-params ]; then
+  rm ~/.snowgem-params -r
+fi
+
+if [ -d ~/snowgem-wallet ]; then
+  rm ./snowgem-wallet -r
+fi
 
 chmod +x ~/masternode-upgrade/fetch-params.sh
 

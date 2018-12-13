@@ -14,7 +14,6 @@ sudo apt-get install \
 ### Download setup file
 ```
 git clone https://github.com/Snowgem/masternode-upgrade
-cd masternode-upgrade
 chmod +x masternode-upgrade/setup.sh masternode-upgrade/setup_part2.sh masternode-upgrade/fetch-params.sh
 ```
 

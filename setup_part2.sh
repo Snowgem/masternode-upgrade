@@ -3,11 +3,12 @@
 cd ~
 
 ./snowgem-cli stop
+./snowgemd -daemon
 
 x=1
 echo "wait for starting"
 while true ; do
-    echo "Please wait ($x)"
+    echo "It's normal, please wait until wallet info is displayed ($x)"
     sleep 1
     x=$(( $x + 1 ))
     if ./snowgem-cli getinfo | grep '"difficulty"' ; then

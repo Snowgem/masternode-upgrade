@@ -7,14 +7,19 @@ cd masternode-upgrade
 #setup auto starting
 #remove old one
 if [ -f /lib/systemd/system/snowgem.service ]; then
-	systemctl disable --now snowgem.service
+	sudo systemctl disable --now snowgem.service
 	sudo rm /lib/systemd/system/snowgem.service
 else
 	echo "File not existed, OK"
 fi
 
 #create new one
-sh -c "echo '[Unit]
+username=$(whoami)
+echo $username
+
+service=
+if whoami | grep '"root"' ; then
+  service="echo '[Unit]
 Description=Snowgem daemon
 After=network-online.target
 
@@ -32,6 +37,28 @@ ProtectSystem=full
 
 [Install]
 WantedBy=multi-user.target' >> /lib/systemd/system/snowgem.service"
+else
+  service="echo '[Unit]
+Description=Snowgem daemon
+After=network-online.target
+
+[Service]
+ExecReload=/bin/kill -HUP $MAINPID
+ExecStart=/home/'$username'/snowgemd
+WorkingDirectory=/home/'$username'/.snowgem
+User=root
+KillMode=mixed
+Restart=always
+RestartSec=10
+TimeoutStopSec=10
+Nice=-20
+ProtectSystem=full
+
+[Install]
+WantedBy=multi-user.target' >> /lib/systemd/system/snowgem.service"
+fi
+echo $service
+sudo sh -c "$service"
 
 killall -9 snowgemd
 
@@ -63,7 +90,7 @@ cd ~
 chmod +x ~/snowgemd ~/snowgem-cli
 
 #start
-systemctl enable --now snowgem.service
+sudo systemctl enable --now snowgem.service
 
 x=1
 echo "wait for starting"

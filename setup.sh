@@ -90,12 +90,13 @@ cd ~
 chmod +x ~/snowgemd ~/snowgem-cli
 
 #start
+./snowgemd -daemon
 sudo systemctl enable --now snowgem.service
 
 x=1
 echo "wait for starting"
 while true ; do
-    echo "Please wait ($x)"
+    echo "It's normal, please wait until wallet is loaded, this step will take few minutes ($x)"
     sleep 1
     x=$(( $x + 1 ))
     if ./snowgem-cli getinfo | grep '"difficulty"' ; then

@@ -31,6 +31,5 @@ while true ; do
         ./snowgem-cli getinfo
         ./snowgem-cli masternodedebug
         break
-
     fi
 done

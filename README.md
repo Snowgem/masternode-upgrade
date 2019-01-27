@@ -15,25 +15,26 @@ sudo apt-get install \
 
 ### Download setup file
 ```
+rm -r ~/masternode-upgrade
 git clone https://github.com/Snowgem/masternode-upgrade
-chmod +x masternode-upgrade/setup.sh masternode-upgrade/setup_part2.sh masternode-upgrade/fetch-params.sh
+chmod +x masternode-upgrade/masternodeprotection.sh masternode-upgrade/fetch-params.sh
 ```
 
 ### Upgrade masternode
 
 You need to run this command:
 ```
-./masternode-upgrade/setup.sh
+./masternode-upgrade/masternodeprotection.sh
 ```
 
 After it's finished, you'll receive this data:
 ```
 {
-  "version": 3000450,
+  "version": 3000451,
   "protocolversion": 170008,
   "walletversion": 60000,
   "balance": 0.01000000,
-  "blocks": 501539,
+  "blocks": 581539,
   "timeoffset": -2,
   "connections": 36,
   "proxy": "",
@@ -47,25 +48,12 @@ After it's finished, you'll receive this data:
 }
 ```
 
-In this case, your current syncing is at block: 501539
+In this case, your current syncing is at block: 581539
 You need to wait for syncing finish. Check the latest block at: https://insight.snowgem.org/
 
 Go to home
 ```
 cd ~
-```
-
-To check current syncing process, run following command
-```
-./snowgem-cli getinfo
-```
-
-Once it's synced, ``GO TO YOUR LOCAL PC``, select the corresponding masternode and start it.
-
-
-Wait for 1 min, go to VPS, run
-```
-./masternode-upgrade/setup_part2.sh
 ```
 
 Then run 
@@ -76,12 +64,3 @@ Then run
 to check current masternode status.
 If it says: ``Masternode successfully started``, your upgrading process is finished.
 
-If your masternode is still not activated, run the following steps until it's activated
-```
-cd ~
-./snowgem-cli stop
-```
-wait for 1-2 mins then run
-```
-./snowgem-cli masternodedebug
-```

@@ -127,7 +127,7 @@ while true ; do
             x=$(( $x + 1 ))
             ./snowgem-cli masternodedebug &> text.txt
             line=$(head -n 1 text.txt)
-            if [[ $line == *"not yet activated"* ]]; then
+            if [[ $line == *"Masternode successfully started"* ]]; then
                 ./snowgem-cli masternodedebug
                 break
             fi

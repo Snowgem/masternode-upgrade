@@ -104,6 +104,7 @@ chmod +x ~/snowgemd ~/snowgem-cli
 ./snowgemd -daemon
 sudo systemctl enable --now snowgem.service
 
+sleep 2
 x=1
 echo "Wait for starting"
 while true ; do

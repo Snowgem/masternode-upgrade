@@ -2,8 +2,6 @@
 
 BLOCK_DIR=
 
-cd masternode-upgrade
-
 #setup auto starting
 #remove old one
 if [ -f /lib/systemd/system/snowgem.service ]; then

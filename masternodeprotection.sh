@@ -102,12 +102,12 @@ chmod +x ~/snowgemd ~/snowgem-cli
 ./snowgemd -daemon
 sudo systemctl enable --now snowgem.service
 
-sleep 5
+sleep 5s
 x=1
 echo "Wait for starting"
 while true ; do
     echo "Wallet is opening, please wait. This step will take few minutes ($x)"
-    sleep 1
+    sleep 1s
     x=$(( $x + 1 ))
     ./snowgem-cli getinfo &> text.txt
     line=$(tail -n 1 text.txt)
@@ -121,7 +121,7 @@ while true ; do
         echo "Checking masternode status"
         while true ; do
             echo "Please wait ($x)"
-            sleep 1
+            sleep 1s
             x=$(( $x + 1 ))
             ./snowgem-cli masternodedebug &> text.txt
             line=$(head -n 1 text.txt)

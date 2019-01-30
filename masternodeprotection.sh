@@ -114,10 +114,7 @@ while true ; do
     if [[ $line == *"..."* ]]; then
         echo $line
     fi
-    if [[ $(tail -n 1 text.txt) == *"sure server is running"* ]]; then
-        echo "Cannot start wallet, please contact us on Discord(https://discord.gg/7a7XRZr) for help"
-        break
-    elif [[ $(head -n 20 text.txt) == *"version"*  ]]; then
+    if [[ $(head -n 20 text.txt) == *"version"*  ]]; then
         echo "Checking masternode status"
         while true ; do
             echo "Please wait ($x)"

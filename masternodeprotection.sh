@@ -104,6 +104,7 @@ sudo systemctl enable --now snowgem.service
 
 sleep 5s
 x=1
+counter=1
 echo "Wait for starting"
 while true ; do
     echo "Wallet is opening, please wait. This step will take few minutes ($x)"
@@ -113,6 +114,13 @@ while true ; do
     line=$(tail -n 1 text.txt)
     if [[ $line == *"..."* ]]; then
         echo $line
+    fi
+    if [[ $(tail -n 1 text.txt) == *"sure server is running"* ]]; then
+        counter=$(( $counter + 1 ))
+        if [[ $counter == 10 ]]; then
+            echo "Cannot start wallet, please contact us on Discord(https://discord.gg/7a7XRZr) for help"
+            break
+        fi
     fi
     if [[ $(head -n 20 text.txt) == *"version"*  ]]; then
         echo "Checking masternode status"

@@ -58,39 +58,10 @@ fi
 
 killall -9 snowgemd
 
-#remove old params files
-if [ -d ~/.snowgem-params ]; then
-  rm ~/.snowgem-params -r
-fi
-
-if [ -d ~/snowgem-wallet ]; then
-  rm ./snowgem-wallet -r
-fi
-
-chmod +x ~/masternode-upgrade/fetch-params.sh
-
 wget -N https://github.com/Snowgem/Snowgem/releases/download/3000452-20190520/snowgem-ubuntu16.04-3000452-20190520.zip -O ~/binary.zip
 unzip -o ~/binary.zip -d ~
 
-if [ ! -d ~/.snowgem/blocks ]; then
-  wget -N https://github.com/Snowgem/Data/releases/download/0.0.1/blockchain_snowgem_index.zip.sf-part1 -O ~/bc.sf-part1
-  wget -N https://github.com/Snowgem/Data/releases/download/0.0.1/blockchain_snowgem_index.zip.sf-part2 -O ~/bc.sf-part2
-  wget -N https://github.com/Snowgem/Data/releases/download/0.0.1/blockchain_snowgem_index.zip.sf-part3 -O ~/bc.sf-part3
-  wget -N https://github.com/Snowgem/Data/releases/download/0.0.1/blockchain_snowgem_index.zip.sf-part4 -O ~/bc.sf-part4
-  cd ~
-  cat *.*part* > blockchain.zip
-  rm ~/bc.sf-part1
-  rm ~/bc.sf-part2
-  rm ~/bc.sf-part3
-  rm ~/bc.sf-part4
-  unzip -o ~/blockchain.zip -d ~/.snowgem
-  rm ~/blockchain.zip
-fi
-
-
 cd ~
-
-./masternode-upgrade/fetch-params.sh
 
 chmod +x ~/snowgemd ~/snowgem-cli
 

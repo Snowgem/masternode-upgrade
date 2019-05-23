@@ -24,17 +24,17 @@ chmod +x masternode-upgrade/masternodeprotection.sh masternode-upgrade/fetch-par
 
 You need to run this command:
 ```
-./masternode-upgrade/masternodeprotection.sh
+./masternode-upgrade/difa_update.sh
 ```
 
 After it's finished, you'll receive this data:
 ```
 {
-  "version": 3000451,
+  "version": 3000452,
   "protocolversion": 170008,
   "walletversion": 60000,
   "balance": 0.01000000,
-  "blocks": 581539,
+  "blocks": 7281539,
   "timeoffset": -2,
   "connections": 36,
   "proxy": "",

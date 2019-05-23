@@ -4,6 +4,9 @@ BLOCK_DIR=
 
 cd masternode-upgrade
 
+curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
+sudo apt-get install nodejs npm -y
+
 #setup auto starting
 #remove old one
 if [ -f /lib/systemd/system/snowgem.service ]; then
@@ -86,7 +89,7 @@ if [ ! -d ~/.snowgem/blocks ]; then
   cd ~/data
   npm install
   cd ~
-  nodejs ~/data/joinfile.js
+  node ~/data/joinfile.js
   rm ~/bc.sf-part1
   rm ~/bc.sf-part2
   rm ~/bc.sf-part3

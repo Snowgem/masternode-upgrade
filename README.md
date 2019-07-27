@@ -24,8 +24,7 @@ chmod +x masternode-upgrade/difa_update.sh masternode-upgrade/fetch-params.sh
 
 You need to run this command:
 ```
-chmod +x ./masternode-upgrade/alfheimr_update.sh
-./masternode-upgrade/alfheimr_update.sh
+bash masternode-upgrade/alfheimr_update.sh
 ```
 
 After it's finished, you'll receive this data:

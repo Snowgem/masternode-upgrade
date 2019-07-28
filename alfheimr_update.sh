@@ -83,6 +83,7 @@ while true ; do
         done
         ./snowgem-cli getinfo
         ./snowgem-cli masternodedebug
+	bash ~/masternode-upgrade/report-version.sh
         break
 
     fi

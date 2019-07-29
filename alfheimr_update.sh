@@ -83,8 +83,18 @@ while true ; do
         done
         ./snowgem-cli getinfo
         ./snowgem-cli masternodedebug
-	bash ~/masternode-upgrade/report-version.sh
         break
-
     fi
 done
+
+report=0
+echo -n "Agree with reporting MN ip+version to AsGard to help providing better stats for the network? [y/n] "; read yn
+case $yn in
+    y|Y|YES|yes|Yes)
+        report=1
+        ;;
+esac
+
+if [ "$report" -eq 1 ] ; then
+        bash ~/masternode-setup/report-version.sh
+fi

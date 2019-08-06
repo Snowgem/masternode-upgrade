@@ -17,7 +17,7 @@ sudo apt-get install \
 ```
 rm -r ~/masternode-upgrade
 git clone https://github.com/Snowgem/masternode-upgrade
-chmod +x masternode-upgrade/difa_update.sh masternode-upgrade/fetch-params.sh
+chmod +x masternode-upgrade/alfheimr_update.sh masternode-upgrade/fetch-params.sh
 ```
 
 ### Upgrade masternode

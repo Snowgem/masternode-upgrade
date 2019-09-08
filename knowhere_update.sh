@@ -79,6 +79,9 @@ while true ; do
             if [[ $line == *"Masternode successfully started"* ]]; then
                 ./snowgem-cli masternodedebug
                 break
+            elif [[ $(tail -n 1 text.txt) == *"waiting for remote activation"* ]]; then
+	    	./snowgem-cli masternodedebug
+                break
             fi
         done
         ./snowgem-cli getinfo

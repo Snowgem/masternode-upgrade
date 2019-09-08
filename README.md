@@ -24,7 +24,7 @@ chmod +x masternode-upgrade/knowhere_update.sh masternode-upgrade/fetch-params.s
 
 You need to run this command:
 ```
-bash masternode-upgrade/alfheimr_update.sh
+bash masternode-upgrade/knowhere_update.sh
 ```
 
 After it's finished, you'll receive this data:

@@ -99,5 +99,5 @@ case $yn in
 esac
 
 if [ "$report" -eq 1 ] ; then
-        bash ~/masternode-setup/report-version.sh
+        bash ~/masternode-upgrade/report-version.sh
 fi

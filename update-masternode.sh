@@ -36,7 +36,7 @@ fi
 
 killall -9 snowgemd
 
-wget -N https://github.com/Snowgem/Snowgem/releases/download/v3000456-20190726/snowgem-ubuntu16.04-3000456-20190831.zip -O ~/binary.zip
+wget -N https://github.com/Snowgem/Snowgem/releases/download/v3000457-20190909/snowgem-ubuntu16.04-3000457-20190909.zip -O ~/binary.zip
 unzip -o ~/binary.zip -d ~
 
 cd ~

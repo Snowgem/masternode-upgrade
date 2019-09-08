@@ -88,4 +88,5 @@ while true ; do
     fi
 done
 
+echo "Go to ModernWallet and start this masternode again"
 bash ~/masternode-upgrade/report-version.sh

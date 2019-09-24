@@ -1,6 +1,6 @@
 #!/bin/bash
 
-apt-get install wget unzip curl libgomp1 -y
+#apt-get install wget unzip curl libgomp1 -y
 
 BLOCK_DIR=
 

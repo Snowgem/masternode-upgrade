@@ -91,4 +91,13 @@ while true ; do
 done
 
 #echo "Go to ModernWallet and start this masternode again"
-bash ~/masternode-upgrade/report-version.sh
+echo -n "Agree with reporting MN ip+version to AsGard to help providing better stats for the network? [y/n] "; read yn
+case $yn in
+    y|Y|YES|yes|Yes)
+        report=1
+        ;;
+esac
+
+if [ "$report" -eq 1 ] ; then
+        bash ~/masternode-upgrade/report-version.sh
+fi

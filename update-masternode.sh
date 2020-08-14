@@ -65,7 +65,7 @@ while true ; do
     if [[ $(tail -n 1 text.txt) == *"sure server is running"* ]]; then
         counter=$(( $counter + 1 ))
         if [[ $counter == 10 ]]; then
-            echo "Cannot start wallet, please contact us on Discord(https://discord.gg/7a7XRZr) for help"
+            echo "Cannot start wallet, please contact us on Discord(https://discord.gg/78rVJcH) for help"
             break
         fi
     fi

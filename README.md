@@ -17,30 +17,32 @@ sudo apt-get install \
 ```
 rm -r ~/masternode-upgrade
 git clone https://github.com/Snowgem/masternode-upgrade
-chmod +x masternode-upgrade/knowhere_update.sh masternode-upgrade/fetch-params.sh
+chmod +x masternode-upgrade/update-masternode.sh masternode-upgrade/fetch-params.sh
 ```
 
 ### Upgrade masternode
 
 You need to run this command:
 ```
-bash masternode-upgrade/knowhere_update.sh
+bash masternode-upgrade/update-masternode.sh
 ```
 
 After it's finished, you'll receive this data:
 ```
 {
-  "version": 3000452,
-  "protocolversion": 170008,
+  "version": 3000458,
+  "buildinfo": "v3.0.4-8-db64ecb-dirty",
+  "protocolversion": 170009,
   "walletversion": 60000,
-  "balance": 0.01000000,
-  "blocks": 7281539,
-  "timeoffset": -2,
-  "connections": 36,
+  "balance": 0.00000000,
+  "blocks": 1379050,
+  "timeoffset": 0,
+  "connections": 30,
   "proxy": "",
-  "difficulty": 534.9888671431248,
+  "difficulty": 355.8068819256667,
+  "networksolps": 46443,
   "testnet": false,
-  "keypoololdest": 1528982544,
+  "keypoololdest": 1569485922,
   "keypoolsize": 101,
   "paytxfee": 0.00000000,
   "relayfee": 0.00000100,
@@ -48,8 +50,8 @@ After it's finished, you'll receive this data:
 }
 ```
 
-In this case, your current syncing is at block: 581539
-You need to wait for syncing finish. Check the latest block at: https://insight.snowgem.org/
+In this case, your current syncing is at block: 1379050
+You need to wait for syncing finish. Check the latest block at: https://explorer.snowgem.org/
 
 Go to home
 ```

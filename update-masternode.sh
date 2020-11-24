@@ -8,11 +8,15 @@ BLOCK_DIR=
 #remove old one
 if [ -f /lib/systemd/system/snowgem.service ]; then
   systemctl disable --now snowgem.service
-else
-  echo "File not existed, OK"
-  #create new one
-  username=$(whoami)
-  echo $username
+  rm /lib/systemd/system/snowgem.service
+fi
+
+if [ -f /lib/systemd/system/tent.service ]; then
+  systemctl disable --now tent.service
+  rm /lib/systemd/system/tent.service
+fi
+
+echo "Creating service file..."
 
   service="echo '[Unit]
 Description=Snowgem daemon
@@ -31,14 +35,15 @@ Nice=-20
 ProtectSystem=full
 
 [Install]
-WantedBy=multi-user.target' >> /lib/systemd/system/snowgem.service"
-  echo $service
-  sh -c "$service"
-fi
+WantedBy=multi-user.target' >> /lib/systemd/system/tent.service"
+
+echo $service
+sh -c "$service"
+
 
 killall -9 snowgemd
 
-wget -N https://github.com/Snowgem/Snowgem/releases/download/v3000458/snowgem-ubuntu-3000458-20200807.zip -O ~/binary.zip
+wget -N https://github.com/TENTOfficial/TENT/releases/download/3.1.0/snowgem-ubuntu-3.1.0-20201117.zip -O ~/binary.zip
 unzip -o ~/binary.zip -d ~
 
 cd ~
@@ -47,7 +52,7 @@ chmod +x ~/snowgemd ~/snowgem-cli
 
 #start
 ./snowgemd -daemon
-systemctl enable --now snowgem.service
+systemctl enable --now tent.service
 
 sleep 11s
 x=1

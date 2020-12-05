@@ -51,8 +51,8 @@ cd ~
 chmod +x ~/snowgemd ~/snowgem-cli
 
 #start
-./snowgemd -daemon
 systemctl enable --now tent.service
+systemctl start tent.service
 
 sleep 11s
 x=1

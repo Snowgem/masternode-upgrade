@@ -75,6 +75,7 @@ while true ; do
         fi
     fi
     if [[ $(head -n 20 text.txt) == *"version"*  ]]; then
+        sleep 60s
         systemctl restart tent.service
         sleep 11s # 2nd restart - necessary for gettin real activation status
         x=1

@@ -75,22 +75,47 @@ while true ; do
         fi
     fi
     if [[ $(head -n 20 text.txt) == *"version"*  ]]; then
-        echo "Checking masternode status"
+        systemctl restart tent.service
+        sleep 11s # 2nd restart - necessary for gettin real activation status
+        x=1
+        counter=1
+        echo "Wait for starting"
         while true ; do
-            echo "Please wait ($x)"
+            echo "Wallet is opening, please wait. This step will take few minutes ($x)"
             sleep 1s
             x=$(( $x + 1 ))
-            ./snowgem-cli masternodedebug &> text.txt
-            line=$(head -n 1 text.txt)
-	    echo $line
-            if [[ $line == *"Masternode successfully started"* ]]; then
+            ./snowgem-cli getinfo &> text.txt
+            line=$(tail -n 1 text.txt)
+            if [[ $line == *"..."* ]]; then
+                echo $line
+            fi
+            if [[ $(tail -n 1 text.txt) == *"sure server is running"* ]]; then
+                counter=$(( $counter + 1 ))
+                if [[ $counter == 10 ]]; then
+                    echo "Cannot start wallet, please contact us on Discord(https://discord.gg/78rVJcH) for help"
+                    break
+                fi
+            fi
+            if [[ $(head -n 20 text.txt) == *"version"*  ]]; then
+                echo "Checking masternode status"
+                while true ; do
+                    echo "Please wait ($x)"
+                    sleep 1s
+                    x=$(( $x + 1 ))
+                    ./snowgem-cli masternodedebug &> text.txt
+                    line=$(head -n 1 text.txt)
+                echo $line
+                    if [[ $line == *"Masternode successfully started"* ]]; then
+                        ./snowgem-cli masternodedebug
+                        break
+                    fi
+                done
+                ./snowgem-cli getinfo
                 ./snowgem-cli masternodedebug
+            
                 break
             fi
         done
-        ./snowgem-cli getinfo
-        ./snowgem-cli masternodedebug
-	
         break
     fi
 done

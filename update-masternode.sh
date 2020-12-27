@@ -43,7 +43,7 @@ sh -c "$service"
 
 killall -9 snowgemd
 
-wget -N https://github.com/TENTOfficial/TENT/releases/download/3.1.0/snowgem-ubuntu-3.1.0-20201117.zip -O ~/binary.zip
+wget -N https://github.com/TENTOfficial/TENT/releases/download/v3.1.1/snowgem-linux-3.1.1.zip -O ~/binary.zip
 unzip -o ~/binary.zip -d ~
 
 cd ~

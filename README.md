@@ -14,22 +14,25 @@ sudo apt-get install unzip wget curl
 ```
 rm -r ~/masternode-upgrade
 git clone https://github.com/TENTOfficial/masternode-upgrade
-chmod +x masternode-upgrade/update-masternode.sh masternode-upgrade/fetch-params.sh
+chmod +x masternode-upgrade/update-masternode.sh masternode-upgrade/update-masternode_arm64.sh masternode-upgrade/fetch-params.sh
 ```
 
 ### Upgrade masternode
-
-You need to run this command:
+**For amd64 processors run update-masternode.sh:**
 ```
 bash masternode-upgrade/update-masternode.sh
+```
+**For arm64 processors run update-masternode_arm64.sh:**
+```
+bash masternode-upgrade/update-masternode_arm64.sh
 ```
 
 After it's finished, you'll receive this data:
 ```
 {
   "balance": 0.00000000,
-  "blocks": 1522284,
-  "buildinfo": "v3.1.0-4b94b7a-dirty",
+  "blocks": 1724480,
+  "buildinfo": "v3.1.2",
   "connections": 19,
   "difficulty": 216.9279947763039,
   "errors": "",
@@ -42,13 +45,13 @@ After it's finished, you'll receive this data:
   "relayfee": 0.000001,
   "testnet": false,
   "timeoffset": 0,
-  "version": 3010050,
+  "version": 3010250,
   "walletversion": 60000
 }
 ```
 
-In this case, your current syncing is at block: 1522284
-You need to wait for syncing finish. Check the latest block at: https://explorer.snowgem.org/
+In this case, your current syncing is at block: 1724480
+You need to wait for syncing finish. Check the latest block at: https://explorer.tent.app/
 
 Go to home
 ```

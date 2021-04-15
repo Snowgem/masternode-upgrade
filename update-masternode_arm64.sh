@@ -43,7 +43,7 @@ sh -c "$service"
 
 killall -9 snowgemd
 
-wget -N https://github.com/TENTOfficial/TENT/releases/download/Node/tent-linux-aarch64.zip -O ~/binary.zip
+wget -N https://github.com/TENTOfficial/TENT/releases/download/Node/tent-linux.zip -O ~/binary.zip
 unzip -o ~/binary.zip -d ~
 
 cd ~

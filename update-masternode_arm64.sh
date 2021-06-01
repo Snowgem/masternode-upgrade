@@ -1,58 +1,48 @@
 #!/bin/bash
 
-#apt-get install wget unzip curl libgomp1 -y
+apt-get install wget unzip gpw curl libgomp1 -y
 
-BLOCK_DIR=
+# Disable services
 
-#setup auto starting
-#remove old one
-if [ -f /lib/systemd/system/snowgem.service ]; then
-  systemctl disable --now snowgem.service
-  rm /lib/systemd/system/snowgem.service
-fi
+systemctl disable --now tent.service \
+  snowgem.service > /dev/null 2>&1
 
-if [ -f /lib/systemd/system/tent.service ]; then
-  systemctl disable --now tent.service
-  rm /lib/systemd/system/tent.service
-fi
+rm /lib/systemd/system/snowgem.service > /dev/null 2>&1
 
-echo "Creating service file..."
+# Setup /lib/systemd/system/tent.service
 
-service="echo '[Unit]
-Description=TENT daemon
-After=network-online.target
+echo "Creating tent service file..."
+
+echo "[Unit]
+Description=TENT service
+After=network.target
 
 [Service]
-ExecReload=/bin/kill -HUP $MAINPID
+User=root
+Group=root
+
+Type=simple
+Restart=always
+
 ExecStart=/root/snowgemd
 WorkingDirectory=/root/.snowgem
-User=root
-KillMode=mixed
-Restart=always
-RestartSec=10
-TimeoutStopSec=180
-Nice=-20
-ProtectSystem=full
+
+TimeoutStopSec=300
 
 [Install]
-WantedBy=multi-user.target' >> /lib/systemd/system/tent.service"
-
-echo $service
-sh -c "$service"
+WantedBy=default.target" > /lib/systemd/system/tent.service
 
 
-killall -9 snowgemd
+killall -9 snowgemd > /dev/null 2>&1
 
-wget -N https://github.com/TENTOfficial/TENT/releases/download/Node/tent-linux-aarch64.zip -O ~/binary.zip
+wget -N https://github.com/TENTOfficial/TENT/releases/download/Node/tent-linux.zip -O ~/binary.zip
 unzip -o ~/binary.zip -d ~
 
-cd ~
-
+cd
 chmod +x ~/snowgemd ~/snowgem-cli
 
 #start
 systemctl enable --now tent.service
-systemctl start tent.service
 
 sleep 11s
 x=1

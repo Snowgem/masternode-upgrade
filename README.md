@@ -18,11 +18,11 @@ chmod +x masternode-upgrade/update-masternode.sh masternode-upgrade/update-maste
 ```
 
 ### Upgrade masternode
-**For amd64 processors run update-masternode.sh:**
+**For amd64 processors (VPS) run update-masternode.sh:**
 ```
 bash masternode-upgrade/update-masternode.sh
 ```
-**For arm64 processors run update-masternode_arm64.sh:**
+**For arm64 processors (RaspberryPI) run update-masternode_arm64.sh:**
 ```
 bash masternode-upgrade/update-masternode_arm64.sh
 ```
